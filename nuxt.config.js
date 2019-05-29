@@ -43,6 +43,9 @@ export default {
 
   /* Build configuration */
   ...routerBase,
+  generate: {
+    dir: 'docs'
+  },
   build: {
     /* You can extend webpack config here */
     extend(config, ctx) {}
