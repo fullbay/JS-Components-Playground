@@ -4,13 +4,9 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY . /app
-
 RUN apk update
 
 RUN apk upgrade
-
-RUN npm install
 
 EXPOSE 5000
 
