@@ -1,11 +1,15 @@
 import pkg from './package'
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/JS-Components-Playground/'
+  }
+} : {};
+
 export default {
   mode: 'universal',
 
-  /*
-  ** Headers of the page
-  */
+  /* Headers of the page */
   head: {
     title: pkg.name,
     meta: [
@@ -18,45 +22,32 @@ export default {
     ]
   },
 
-  /*
-  ** Customize the progress-bar color
-  */
+  /* Customize the progress-bar color */
   loading: { color: '#fff' },
 
-  /*
-  ** Global CSS
-  */
-  css: [
-  ],
+  /* Global CSS */
+  css: [],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
+  /* Plugins to load before mounting the App */
+  plugins: [],
 
-  /*
-  ** Nuxt.js modules
-  */
+  /* Nuxt.js modules */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
-  /*
-  ** Axios module configuration
-  */
+  /* Axios module configuration */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
-  /*
-  ** Build configuration
-  */
+  /* Build configuration */
+  ...routerBase,
+  generate: {
+    dir: 'docs'
+  },
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-    }
+    /* You can extend webpack config here */
+    extend(config, ctx) {}
   }
 }
